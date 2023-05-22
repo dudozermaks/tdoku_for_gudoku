@@ -225,6 +225,11 @@ if (RUST_SUDOKU AND HAVE_RUST_SUDOKU_LIB)
     add_definitions(-DRUST_SUDOKU)
 endif()
 
+set(GENERATE_SOLVER_SOURCES
+        src/generator.cc
+        src/util.cc
+        ${GENERATE_SOLVER_SOURCES})
+
 add_executable(run_benchmark src/run_benchmark.cc src/util.cc ${BENCHMARK_SOLVER_SOURCES})
 add_executable(run_tests test/run_tests.cc src/util.cc ${BENCHMARK_SOLVER_SOURCES})
 add_executable(generate src/generate.cc src/util.cc ${GENERATE_SOLVER_SOURCES})
